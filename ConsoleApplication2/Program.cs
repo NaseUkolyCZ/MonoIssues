@@ -10,7 +10,18 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(DateTime.Parse("2014-04-16+02:00") );
+            string s = "2014-04-16+02:00";
+
+            Console.WriteLine(DateTime.Parse(s));
+            if (s.Length == "2014-04-16+02:00".Length)
+            {
+                if (s[4] == '-' && s[7] == '-' && s[10] == '+' && s[13] == ':' && s.StartsWith("20") && s.EndsWith("+02:00") )
+                {
+                    s = s.Replace("+02:00", "");
+                }
+            }
+
+            Console.WriteLine(DateTime.Parse(s) );
             Console.ReadLine();
         }
     }
